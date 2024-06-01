@@ -119,7 +119,7 @@ const ProductForm = ({
         </select>
         {propertiesTofill.length > 0 &&
           propertiesTofill.map((p) => (
-            <div key={p} className="flex gap-1 items-center my-2">
+            <div key={p._id} className="flex gap-1 items-center my-2">
               <div className="text-lg font-medium ">{p.name}</div>
               <select
                 className="w-fit mb-0 px-2"
@@ -127,7 +127,9 @@ const ProductForm = ({
                 onChange={(ev) => setProductProp(p.name, ev.target.value)}
               >
                 {p.values.map((v) => (
-                  <option value={v}>{v}</option>
+                  <option value={v} key={v._id}>
+                    {v}
+                  </option>
                 ))}
               </select>
             </div>

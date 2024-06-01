@@ -23,6 +23,7 @@ const Categories = ({ swal }) => {
       name,
       parentCategory,
       properties: properties.map((p) => ({
+        key: p._id,
         name: p.name,
         values: p.values.split(","),
       })),
@@ -46,6 +47,7 @@ const Categories = ({ swal }) => {
     setParentCategory(category.parent?._id);
     setProperties(
       category.properties.map(({ name, values }) => ({
+        key: name,
         name,
         values: values.join(","),
       }))
@@ -136,7 +138,7 @@ const Categories = ({ swal }) => {
           </button>
           {properties.length > 0 &&
             properties.map((property, index) => (
-              <div>
+              <di key={index}>
                 <div className="flex gap-1 items-center">
                   <input
                     type="text"
@@ -183,7 +185,7 @@ const Categories = ({ swal }) => {
                     Save
                   </button>
                 </div>
-              </div>
+              </di>
             ))}
         </div>
       </form>
